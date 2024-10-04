@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmgyx638c3i7x"]
 
-[ext_resource type="PackedScene" uid="uid://dyyhdhthtts4u" path="res://player.tscn" id="1_0ab53"]
-[ext_resource type="PackedScene" uid="uid://c01lfjl7ftefd" path="res://spawner.tscn" id="3_n2x40"]
-[ext_resource type="PackedScene" uid="uid://c7c6lj58wu2nu" path="res://scoreboard.tscn" id="4_sa64o"]
+[ext_resource type="PackedScene" uid="uid://dyyhdhthtts4u" path="res://scenes/player.tscn" id="1_0ab53"]
+[ext_resource type="PackedScene" uid="uid://c01lfjl7ftefd" path="res://scenes/spawner.tscn" id="3_n2x40"]
+[ext_resource type="PackedScene" uid="uid://c7c6lj58wu2nu" path="res://scenes/scoreboard.tscn" id="4_sa64o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4ck0"]
 size = Vector2(200, 800)
@@ -13,7 +13,6 @@ size = Vector2(200, 800)
 position = Vector2(66, 1734)
 
 [node name="spawner" parent="." instance=ExtResource("3_n2x40")]
-position = Vector2(539, -39)
 
 [node name="scoreboard" parent="." instance=ExtResource("4_sa64o")]
 
