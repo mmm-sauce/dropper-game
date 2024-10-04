@@ -14,6 +14,10 @@ config/name="firstcollabgame"
 run/main_scene="res://scenes/level_1.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 
+[autoload]
+
+global="*res://scripts/global.gd"
+
 [display]
 
 window/size/viewport_width=1080
