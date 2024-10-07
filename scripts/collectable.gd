@@ -1,7 +1,15 @@
 extends RigidBody2D
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	# Handles the counting logic
+	add_to_group("collectables")
+	
+	
+	
 	# Create a physics material to control friction and bounce
 	var physics_material = PhysicsMaterial.new()
 	physics_material.friction = 4  # Higher friction so briefcases don't slide off easily
