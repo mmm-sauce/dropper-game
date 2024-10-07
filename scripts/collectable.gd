@@ -1,43 +1,15 @@
-extends Area2D
+extends RigidBody2D
 
-var is_attached = false  # To track whether the briefcase has collided and attached to the player
-var top_briefcase # The player node reference
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	# Create a physics material to control friction and bounce
+	var physics_material = PhysicsMaterial.new()
+	physics_material.friction = 4  # Higher friction so briefcases don't slide off easily
+	physics_material.bounce = 0.05  # Low bounciness to ensure briefcases settle
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if is_attached:
-		# Follow the player's X movement, snap to the center
-		pass
-	else:
-		# Continue falling if not attached
-		position.y += 5
+	# Apply the material to the briefcase
+	self.physics_material_override = physics_material
 
-# When the briefcase collides with the player or top briefcase
-func _on_body_entered(body):
-	print("collides")
-	print(global.top_briefcase)
-	print(body.name)
-	if body == global.top_briefcase:  # Only allow collision with the player or the current top briefcase
-		print("works")
-		# Attach the briefcase to the player or stack
-		top_briefcase = body
-		is_attached = true
-		
-		# Check if the current top is the player
-		if top_briefcase.name == "player":
-			# Parent to the player (first briefcase)
-			self.reparent(top_briefcase)
-		else:
-			# Parent to the player (subsequent briefcases)
-			self.reparent(top_briefcase.get_parent())
-		
-		# Snap the briefcase to the current stack position
-		#position.x = 0
-		position.y = -top_briefcase.get_node("CollisionShape2D").shape.size.y/2 - $CollisionShape2D.shape.size.y/2
-
-		# Increment the stack height
-		global.stack_h += 1
-		
-		# Update the global reference to the new top briefcase
-		global.top_briefcase = self
-		print(global.top_briefcase)
+	# Constrain rotation to prevent briefcases from flipping too much
+	set_angular_velocity(0)  # Stop rotation initially
+	angular_damp = 4.0  # Control how fast it slows down rotation when hit

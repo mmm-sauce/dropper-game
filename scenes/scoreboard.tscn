@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7c6lj58wu2nu"]
+[gd_scene load_steps=4 format=3 uid="uid://c7c6lj58wu2nu"]
 
 [ext_resource type="Script" path="res://scripts/scoreboard.gd" id="1_cw0si"]
+[ext_resource type="FontFile" uid="uid://cwcl0r5libmsd" path="res://assets/BLUEFISH BLACK SCRATCHED_Demo.otf" id="2_jw0em"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s2mu7"]
+font = ExtResource("2_jw0em")
+font_size = 130
+font_color = Color(0.180392, 0.180392, 0.172549, 1)
+shadow_color = Color(0, 0, 0, 0.121569)
+shadow_offset = Vector2(7.825, 8.045)
 
 [node name="scoreboard" type="Control"]
+visibility_layer = 512
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -10,8 +19,16 @@ offset_bottom = 40.0
 script = ExtResource("1_cw0si")
 
 [node name="scoretext" type="Label" parent="."]
+visibility_layer = 512
+z_index = -4
 layout_mode = 0
-offset_right = 1082.0
-offset_bottom = 173.0
+offset_top = 391.095
+offset_right = 1080.0
+offset_bottom = 1457.78
+theme_override_fonts/font = ExtResource("2_jw0em")
 theme_override_font_sizes/font_size = 126
-text = "Height:"
+text = "0
+"
+label_settings = SubResource("LabelSettings_s2mu7")
+horizontal_alignment = 1
+vertical_alignment = 1

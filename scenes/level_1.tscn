@@ -1,20 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmgyx638c3i7x"]
+[gd_scene load_steps=9 format=3 uid="uid://cmgyx638c3i7x"]
 
 [ext_resource type="PackedScene" uid="uid://dyyhdhthtts4u" path="res://scenes/player.tscn" id="1_0ab53"]
 [ext_resource type="PackedScene" uid="uid://c01lfjl7ftefd" path="res://scenes/spawner.tscn" id="3_n2x40"]
+[ext_resource type="Texture2D" uid="uid://rl0nkwn1pglr" path="res://assets/background.png" id="4_poedr"]
 [ext_resource type="PackedScene" uid="uid://c7c6lj58wu2nu" path="res://scenes/scoreboard.tscn" id="4_sa64o"]
+
+[sub_resource type="Gradient" id="Gradient_dh4t5"]
+offsets = PackedFloat32Array(0, 0.993506, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t62bk"]
+gradient = SubResource("Gradient_dh4t5")
+width = 289
+height = 209
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4ck0"]
 size = Vector2(200, 800)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lvkn"]
+size = Vector2(1080, 375)
+
 [node name="level1" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_0ab53")]
-position = Vector2(66, 1734)
+position = Vector2(540, 1418.3)
 
 [node name="spawner" parent="." instance=ExtResource("3_n2x40")]
 
 [node name="scoreboard" parent="." instance=ExtResource("4_sa64o")]
+
+[node name="PointLight2D" type="PointLight2D" parent="scoreboard"]
+position = Vector2(540, 925)
+scale = Vector2(0.776878, 1.17026)
+color = Color(0.829059, 0.870668, 0.763117, 0.388235)
+energy = 0.51
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.384314)
+texture = SubResource("GradientTexture2D_t62bk")
+texture_scale = 2.67
 
 [node name="moveright" type="TouchScreenButton" parent="."]
 position = Vector2(974, 817)
@@ -25,3 +50,16 @@ action = "right"
 position = Vector2(101, 796)
 shape = SubResource("RectangleShape2D_d4ck0")
 action = "left"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(531.5, 960)
+scale = Vector2(1.01389, 1)
+texture = ExtResource("4_poedr")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(540, 1732.5)
+shape = SubResource("RectangleShape2D_3lvkn")
