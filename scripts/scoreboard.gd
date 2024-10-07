@@ -13,8 +13,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var collectables = get_tree().get_nodes_in_group("collectables")
-	var global.stack_h = 0
+	global.stack_h = 0
 	for i in collectables:
-		if i.velocity.y > 10:
-			count 
+		if i.linear_velocity.y  < 90 && i.position.y > 100:
+			global.stack_h += 1
 	$scoretext.text = str(global.stack_h)
