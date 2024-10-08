@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dyyhdhthtts4u"]
+[gd_scene load_steps=7 format=3 uid="uid://dyyhdhthtts4u"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_r3paj"]
 [ext_resource type="Texture2D" uid="uid://djqiuue7g3kmd" path="res://assets/player.png" id="2_2snlt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aa1ie"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwtph"]
 size = Vector2(124, 194.333)
@@ -15,6 +17,11 @@ size = Vector2(149, 20)
 [node name="player" type="CharacterBody2D"]
 disable_mode = 2
 script = ExtResource("1_r3paj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, 0)
+scale = Vector2(0.582, 0.582)
+sprite_frames = SubResource("SpriteFrames_aa1ie")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-4, 0)
