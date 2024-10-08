@@ -21,4 +21,5 @@ func _process(delta):
 		current_speed = lerp(float(current_speed), 0.0, float(decel))
 
 	velocity.x = current_speed
+	$RigidBody2D.linear_velocity.x = current_speed
 	move_and_slide()

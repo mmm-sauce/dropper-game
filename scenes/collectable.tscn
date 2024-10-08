@@ -4,10 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dc7bj3o43ncye" path="res://assets/briefcase.png" id="2_h3ary"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_atsns"]
-friction = 9.45
+friction = 29.65
 rough = true
 bounce = 0.85
-absorbent = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5daiu"]
 resource_local_to_scene = true

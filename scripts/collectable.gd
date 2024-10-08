@@ -12,7 +12,7 @@ func _ready():
 	
 	# Create a physics material to control friction and bounce
 	var physics_material = PhysicsMaterial.new()
-	physics_material.friction = 10  # Higher friction so briefcases don't slide off easily
+	physics_material.friction = 20  # Higher friction so briefcases don't slide off easily
 	physics_material.bounce = 0.05  # Low bounciness to ensure briefcases settle
 
 	# Apply the material to the briefcase
