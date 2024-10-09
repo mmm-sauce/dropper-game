@@ -3,27 +3,37 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_r3paj"]
 [ext_resource type="Texture2D" uid="uid://djqiuue7g3kmd" path="res://assets/player.png" id="2_2snlt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwtph"]
-size = Vector2(124, 194.333)
+[sub_resource type="SpriteFrames" id="SpriteFrames_aa1ie"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qujq6"]
-size = Vector2(115, 665.5)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uod02"]
+friction = 29.8
 
 [node name="player" type="CharacterBody2D"]
 disable_mode = 2
+collision_mask = 0
 script = ExtResource("1_r3paj")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, 0)
+scale = Vector2(0.582, 0.582)
+sprite_frames = SubResource("SpriteFrames_aa1ie")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, 0)
 scale = Vector2(0.582, 0.582)
 texture = ExtResource("2_2snlt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.19209e-06, 0.250002)
-scale = Vector2(1.205, 1.205)
-shape = SubResource("RectangleShape2D_iwtph")
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(-3, 0)
+scale = Vector2(0.582, 0.582)
+polygon = PackedVector2Array(-63, -206, -63, -204.8, -69.2, -204, -73.7, -204, -81.7, -198, -84.2, -198, -93, -181.5, -93, -180.3, -103.5, -175, -106.1, -175, -115.1, -160, -117, -160, -117, -91.7, -121, -86, -122.7, -86, -124.7, -73, -126.8, -73, -121, -55.7, -121, -53.2, -113, -45.2, -113, -43.8, -102, -38.3, -101, -15.9, -101, -12.2, -92, -2.3, -92, -0.800003, -78.5, 6, -63.1, 6, -100, 54, -101.2, 54, -120.3, 89, -122.9, 89, -119, 99.4, -119, 101.8, -111, 109.8, -111, 111.2, -91, 122.2, -91, 124.7, -72.7, 119, -69.2, 119, -63, 113.4, -60.6, 123, -56.4, 123, -64, 168.8, -64, 176, -70.7, 181, -72.3, 181, -75.3, 188, -77.1, 188, -76, 204.1, -76, 207, -16.5, 207, 1, 139.7, 14, 195, 14, 201.8, 17, 204.8, 17, 207, 74.1, 207, 76.1, 204, 78.2, 204, 77, 189.8, 77, 186.2, 66.8, 176, 65.8, 176, 59, 129.7, 59, 122.2, 64.3, 120, 67, 120, 67, 114.2, 84.5, 124, 91.6, 124, 106.5, 115, 109, 115, 124, 95.7, 124, 89.4, 109, 64.4, 109, 62.3, 62.2, 5.8, 81.1, 5, 85.7, 5, 102.7, -9, 104.4, -9, 108.4, -20, 110, -20, 110, -116.5, 124.1, -120, 126.9, -120, 137.9, -133, 141.2, -133, 137, -141.5, 137, -143.3, 126.4, -148, 124.7, -148, 116.8, -155, 113, -168, 113, -171.6, 105, -183.7, 105, -186, 92, -196, 92, -197.4, 82, -201.4, 82, -203)
 
-[node name="casedetector" type="Area2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_uod02")
+gravity_scale = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="casedetector"]
-position = Vector2(0, -450)
-shape = SubResource("RectangleShape2D_qujq6")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2(-3, 0)
+scale = Vector2(0.582, 0.582)
+polygon = PackedVector2Array(-63, -206, -63, -204.8, -69.2, -204, -73.7, -204, -81.7, -198, -84.2, -198, -93, -181.5, -93, -180.3, -103.5, -175, -106.1, -175, -115.1, -160, -117, -160, -117, -91.7, -121, -86, -122.7, -86, -124.7, -73, -126.8, -73, -121, -55.7, -121, -53.2, -113, -45.2, -113, -43.8, -102, -38.3, -101, -15.9, -101, -12.2, -92, -2.3, -92, -0.800003, -78.5, 6, -63.1, 6, -100, 54, -101.2, 54, -120.3, 89, -122.9, 89, -119, 99.4, -119, 101.8, -111, 109.8, -111, 111.2, -91, 122.2, -91, 124.7, -72.7, 119, -69.2, 119, -63, 113.4, -60.6, 123, -56.4, 123, -64, 168.8, -64, 176, -70.7, 181, -72.3, 181, -75.3, 188, -77.1, 188, -76, 204.1, -76, 207, -16.5, 207, 1, 139.7, 14, 195, 14, 201.8, 17, 204.8, 17, 207, 74.1, 207, 76.1, 204, 78.2, 204, 77, 189.8, 77, 186.2, 66.8, 176, 65.8, 176, 59, 129.7, 59, 122.2, 64.3, 120, 67, 120, 67, 114.2, 84.5, 124, 91.6, 124, 106.5, 115, 109, 115, 124, 95.7, 124, 89.4, 109, 64.4, 109, 62.3, 62.2, 5.8, 81.1, 5, 85.7, 5, 102.7, -9, 104.4, -9, 108.4, -20, 110, -20, 110, -116.5, 124.1, -120, 126.9, -120, 137.9, -133, 141.2, -133, 137, -141.5, 137, -143.3, 126.4, -148, 124.7, -148, 116.8, -155, 113, -168, 113, -171.6, 105, -183.7, 105, -186, 92, -196, 92, -197.4, 82, -201.4, 82, -203)

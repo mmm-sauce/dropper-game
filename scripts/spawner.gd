@@ -16,5 +16,3 @@ func _on_timer_timeout():
 	add_child(newcollectable)
 	var spawnpos = randi_range(0,get_window().content_scale_size.x)
 	newcollectable.position.x = spawnpos
-
-	

@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dc7bj3o43ncye" path="res://assets/briefcase.png" id="2_h3ary"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_atsns"]
-friction = 9.45
+friction = 29.65
+rough = true
 bounce = 0.85
-absorbent = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5daiu"]
 resource_local_to_scene = true
@@ -28,7 +28,7 @@ collision_layer = 2
 collision_mask = 3
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_atsns")
-gravity_scale = 0.467
+gravity_scale = 0.488
 script = ExtResource("1_t1en0")
 
 [node name="briefcaseSprite2" type="Sprite2D" parent="."]
