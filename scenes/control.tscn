@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5tyfqvtuy3br"]
+[gd_scene load_steps=10 format=3 uid="uid://b5tyfqvtuy3br"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_oifvo"]
 [ext_resource type="FontFile" uid="uid://boy515nxbyxmo" path="res://assets/pixeboy-font (1)/Pixeboy-z8XGD.ttf" id="2_0j3b2"]
 [ext_resource type="Texture2D" uid="uid://dwartfh01l1dy" path="res://assets/backgroundblur.png" id="2_1dtox"]
+[ext_resource type="FontFile" uid="uid://en3mnxrxi3x8" path="res://assets/Pixeboy-z8XGD.ttf" id="4_g5i7h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjovj"]
 bg_color = Color(0, 0, 0, 1)
@@ -33,6 +34,16 @@ expand_margin_bottom = 5.0
 bg_color = Color(0, 0, 0, 1)
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhqby"]
+content_margin_left = 60.0
+content_margin_top = 50.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 2
+border_width_right = 4
+border_width_bottom = 3
+border_color = Color(1, 0.992157, 0, 1)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -85,8 +96,19 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_12bg5")
 text = "Quit"
 
 [node name="Backgroundblur" type="Sprite2D" parent="."]
-position = Vector2(534, 958)
+position = Vector2(537, 949)
 texture = ExtResource("2_1dtox")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 336.0
+offset_right = 842.0
+offset_bottom = 499.0
+theme_override_fonts/normal_font = ExtResource("4_g5i7h")
+theme_override_font_sizes/normal_font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_xhqby")
+text = "Wall Street"
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/quit" to="." method="_on_quit_pressed"]
