@@ -8,17 +8,12 @@ func _ready():
 	# Handles the counting logic
 	add_to_group("collectables")
 	
-	
-	
-	# Create a physics material to control friction and bounce
-	var physics_material = PhysicsMaterial.new()
-	physics_material.friction = 20  # Higher friction so briefcases don't slide off easily
-	physics_material.bounce = 0.05  # Low bounciness to ensure briefcases settle
-
-	# Apply the material to the briefcase
-	self.physics_material_override = physics_material
-
 	# Constrain rotation to prevent briefcases from flipping too much
 	set_angular_velocity(0)  # Stop rotation initially
-	angular_damp = 2.0  # Control how fast it slows down rotation when hit
 	
+	
+func _process(delta: float) -> void:
+	# Removes collectable once below the screen
+	if position.y > get_viewport_rect().size.y + 200:
+		queue_free()
+		print("free")
